@@ -1,20 +1,15 @@
 import React, {useState} from 'react';
 import Spinner from '../Post/Feed.js/Spinner';
+import Image from 'next/image';
 import Validation from './validation';
 import {NavLink} from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
 import GoogleLogin from 'react-google-login';
-import { useNavigate } from 'react-router-dom';
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import logo from '../../img/logopinky.png';
 import bgImage from '../../img/60.png';
-import './styles.css';
-
-import { client } from '../../client';
-
+import styles from "../../styles/Signin.module.css"
 export default function SignIn() {
-    const navigate = useNavigate()
-
 
     const responseGoogle = (response) => {
         localStorage.setItem('user', JSON.stringify(response.profileObj));
@@ -28,30 +23,24 @@ export default function SignIn() {
             email: email,
         }
 
-        client.createIfNotExists(doc)
-        .then(() => {
-            navigate('/', { replace: true })
-        })
     }
-    const message = "Be Pleasured By Pinky"
-  return (
-      <div className='form-container'>
-         <img src={logo} className='logo' alt="" />
-        <div className='spinnerLoginContainer'>
-          <Spinner message={message}/>
 
+  return (
+      <div className={styles.formContainer}>
+        <div className='spinnerLoginContainer'>
+          <Spinner />
         </div>
         <div>
-        <div className='app-wrapper'>
+        <div className={styles.appWrapper}>
             </div>
-            <div className='loginWrapper'>
-                <GoogleLogin className='googleWrapper'
+            <div className={styles.loginWrapper}>
+                <GoogleLogin className={styles.googleWrapper}
                     // clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                     clientId= '1012340695541-l7j2gt5f7pcjsq2kf7ar6oigmoqmiqum.apps.googleusercontent.com'
                     render={(renderProps) => (
                         <div 
                             type='button' 
-                            className='loginButton google' 
+                            className={`${styles.loginButton} ${styles.google}'`} 
                             onClick={renderProps.onClick}
                             disabled={renderProps.disabled}
                             >

@@ -29,24 +29,19 @@
 
 }
 
-img.homeLogo {
-    width : 90px;
-}
 .footer {
     display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     justify-content: space-between;
     border-top: 1px solid gray;
     padding: 5px 10px;
     background-color: pink;
-    line-height: 5px;
+    line-height: 4px;
 }
 
-img.footerLogo {
-    width: 80px;
-}
-img.siteLogo {
-    width: 50px;
-}
+
 
 .footer p{
     font-size: 12px;
@@ -104,13 +99,12 @@ img.siteLogo {
     font-size: 12px;
     line-height: 1px;
 }
-/* a{
-    padding: 0;
-    margin: 0;;
-} */
+
 .link {
     color: grey;
     display: flex;
+    list-style: none;
+    text-decoration: none;
     align-items: center;
     justify-content: flex-start;
     transition: .3s ease-in;
@@ -121,17 +115,17 @@ img.siteLogo {
     border-radius: 5px;
 }
 
-svg.footer-logo-app {
+.footerLogoApp {
     color: green;
     padding: 0 5px;
     margin: 0;
 }
-svg.footer-logo-fb {
+.footerLogoFb {
     color: rgb(0, 104, 173);
     padding: 0 5px;
     margin: 0;
 }
-svg.footer-logo-loc {
+.footerLogoLoc {
     color: rgb(255, 0, 0);
     padding: 0 5px;
     margin: 0;

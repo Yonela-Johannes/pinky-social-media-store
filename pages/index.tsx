@@ -14,7 +14,6 @@ import Signin  from '../pages/Signin';
 import Blog from '../pages/Blog';
 import Post from '../Components/BlogCard/Post';
 // import "../styles/global.css"
-
 const HomeIndex = () => {
 
   const emptyItem = []
@@ -108,8 +107,9 @@ const HomeIndex = () => {
     //       </div>
     //       )}
     // </div>   
-    <div className="App">
-        {/* <Navbar countCartItems={cartItems.length} user={user} admin={admin}/> */}
+    <div className='app'>
+        <Navbar countCartItems={cartItems.length} user={user} admin={admin}/>
+        <Signin />
           {/* <Home products={products} /> */}
         <Footer />
     </div>   
