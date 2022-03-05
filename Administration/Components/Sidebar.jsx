@@ -1,39 +1,35 @@
-import './sidebar.css'
 import { FaUsers } from "react-icons/fa";
-import { FaBlog } from "react-icons/fa";
-import { FaComments } from "react-icons/fa";
-// import { Fab } from '@mui/material';
-import { MdOutlineFeed } from "react-icons/md";
 import { RiAdminFill } from "react-icons/ri";
 import { GrTransaction } from "react-icons/gr";
+import styles from '../../styles/Sidebar.module.css'
 import { RiProductHuntLine } from "react-icons/ri";
 import { BsShopWindow } from "react-icons/bs";
 export default function Sidebar() {
   return (
-    <div className="sidebar">
-        <div className="sidebarWrapper">
-            <div className="sidebarMenu">
-                <h3 className='sidebarTitle'>Dashboard</h3>
-                <ul className='sidebarList'>
-                    <li className="sidebarListItem">
-                        <GrTransaction className='sidebarIcon' />Transactions Details
+    <div className={styles.sidebar}>
+        <div className={styles.sidebarWrapper}>
+            <div className={styles.sidebarMenu}>
+                <h3 className={styles.sidebarTitle}>Dashboard</h3>
+                <ul className={styles.sidebarList}>
+                    <li className={styles.sidebarListItem}>
+                        <GrTransaction className={styles.sidebarIcon} />Transactions Details
                     </li>
-                    <li className="sidebarListItem">
-                        <BsShopWindow className='sidebarIcon' />All Products
+                    <li className={styles.sidebarListItem}>
+                        <BsShopWindow className={styles.sidebarIcon} />All Products
                     </li>
-                    <li className="sidebarListItem">
-                        <RiProductHuntLine className='sidebarIcon' />Add Products
+                    <li className={styles.sidebarListItem}>
+                        <RiProductHuntLine className={styles.sidebarIcon} />Add Products
                     </li>
-                    <li className="sidebarListItem">
-                        <FaUsers className='sidebarIcon' />Users
+                    <li className={styles.sidebarListItem}>
+                        <FaUsers className={styles.sidebarIcon} />Users
                     </li>
                 </ul>
             </div>
             <hr></hr>
-            <div className="sidebarMenu">
-                <h3 className='sidebarTitle'>Staff</h3>
-                <ul className='sidebarList'>
-                    <li className="sidebarListItem">
+            <div className={styles.sidebarMenu}>
+                <h3 className={styles.sidebarTitle}>Staff</h3>
+                <ul className={styles.sidebarList}>
+                    <li className={styles.sidebarListItem}>
                         <RiAdminFill />Staff
                     </li>
                 </ul>

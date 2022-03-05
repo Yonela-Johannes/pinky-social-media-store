@@ -14,8 +14,9 @@ import Signin  from '../pages/Signin';
 import Blog from '../pages/Blog';
 import Post from '../Components/BlogCard/Post';
 // import "../styles/global.css"
-const HomeIndex = () => {
-
+const HomeIndex = ({providers}) => {
+  const { data: session } = useSession();
+  console.log(session)
   const emptyItem = []
   // localStorage.setItem('emptyItem', JSON.stringify(emptyItem))
   const [products, setProducts ] = useState([])
@@ -109,7 +110,8 @@ const HomeIndex = () => {
     // </div>   
     <div className='app'>
         <Navbar countCartItems={cartItems.length} user={user} admin={admin}/>
-        <Signin />
+        {/* <Signin providers={providers} /> */}
+        <Admin />
           {/* <Home products={products} /> */}
         <Footer />
     </div>   
@@ -119,19 +121,11 @@ const HomeIndex = () => {
 export default HomeIndex;
 
 export async function getServerSideProps (context){
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-    (res) => res.json()
-  );
   const providers = await getProviders();
   const session = await getSession(context);
 
   return {
     props: {
-      trendingResults,
-      followResults,
       providers,
       session,
     },

@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
 }
-input.productInput {
+.productInput {
     font-size: 14px;
     border-radius: 15px;
     padding: 5px 10px;
@@ -133,14 +133,14 @@ input.productInput {
     padding: 10px;
 }
 
-p.userLabel {
+.userLabel {
     font-size: 12px;
     padding: 10px;
 }
-p.userCount {
+.userCount {
     color: green;
 }
-img.userImage {
+.userImage {
     width: 60px;
     height: 60px;
     border-radius: 60%;

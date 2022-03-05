@@ -4,9 +4,9 @@ import Users from '../Components/Users'
 
 export default function Admin() {
   return (
-    <div className={`main flex justify-start items-start`}>
+    <div className='admin'>
         <Sidebar />
-        <div className='ml-6'>
+        <div className='adminContainer'>
           <AddProducts />
           {/* <Users /> */}
         </div>

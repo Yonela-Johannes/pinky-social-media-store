@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 import Spinner from '../Post/Feed.js/Spinner';
-import Image from 'next/image';
-import Validation from './validation';
-import {NavLink} from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
+import { signIn } from 'next-auth/react';
 import GoogleLogin from 'react-google-login';
-import { TiSocialFacebookCircular } from "react-icons/ti";
-import logo from '../../img/logopinky.png';
-import bgImage from '../../img/60.png';
 import styles from "../../styles/Signin.module.css"
-export default function SignIn() {
 
+
+export default function SignIn({providers}) {
+    console.log(providers)
     const responseGoogle = (response) => {
         localStorage.setItem('user', JSON.stringify(response.profileObj));
         const { name, googleId, imageUrl, email, admin } = response.profileObj;
@@ -27,7 +24,7 @@ export default function SignIn() {
 
   return (
       <div className={styles.formContainer}>
-        <div className='spinnerLoginContainer'>
+        <div className={styles.spinnerLoginContainer}>
           <Spinner />
         </div>
         <div>

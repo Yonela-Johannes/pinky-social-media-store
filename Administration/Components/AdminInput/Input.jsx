@@ -1,5 +1,6 @@
 import { PhotographIcon, XIcon } from '@heroicons/react/outline';
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import Spinner from '../../../Components/Post/Feed.js/Spinner';
 import { db, storage } from "../../../firebase";
@@ -80,7 +81,7 @@ function Input() {
                                 >
                                     <XIcon className="text-[white] h-5" />
                                 </div>
-                                <img src={selectedProductImage} alt="select" className="rounded-2xl max-h-80 object-contain" />
+                                <Image src={selectedProductImage} alt="select" className="rounded-2xl max-h-80 object-contain" />
                             </div>
                         )}
                     </div>
