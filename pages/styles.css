@@ -1,0 +1,250 @@
+.main {
+    padding-top: 110px;
+    padding-bottom: 50px;
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+}
+.mainCartContainer {
+    padding-top: 85px;
+    padding-bottom: 50px;
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+}
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+.container {
+    display: flex;
+}
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3px;
+    margin: 5px;
+    border-radius:  15px;
+    justify-content: center;
+    align-items: center;
+}
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.basket {
+    flex: 1;
+}
+.head {
+    cursor: pointer;
+    text-align: center;
+    color: rgb(50, 50, 50);
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 25px;
+
+}
+.title {
+    text-align: center;
+    color: rgb(72, 72, 72);
+    border-radius: 15px;
+    font-size: 25px;
+    font-family: 'Gwendolyn', sans-serif;
+}
+.title-name {
+    color: rgb(121, 117, 117);
+    font-size: 12px;
+    padding: 0 5px;
+}
+.image {
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+/* Basket */
+
+.aside {
+    width: 500px;
+    background-color: rgb(241, 241, 241);
+    padding: 5px;
+    margin: 5px;
+    border-radius:  15px;
+    border: .5px solid rgba(216, 216, 216, 0.712);
+}
+
+.col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+hr{
+    background-color: rgb(223, 223, 223);
+    border-radius: 20px;
+    height: .5px;
+    border: none;
+}
+.buttons {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+button.add {
+    width: 10px;
+    border: none;
+    border: .5px solid rgba(253, 156, 172, 0.712);
+}
+button.remove {
+    background-color: rgb(255, 255, 255);
+    width: 10px;
+    border: none;
+    border: .5px solid rgba(253, 156, 172, 0.712);
+}
+
+button.badge {
+    background-color: grey;
+    border: none;
+    color: white;
+    width: 1.5rem;
+}
+
+.cartWrapper {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.cartHead {
+    font-weight: bold;
+}
+
+.cartDesc {
+    font-weight: bold;
+    font-size: 11px;
+}
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.mainContainer {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    margin: 10px;
+    border: .5px solid rgb(226, 226, 226);
+    /* justify-content: space-around; */
+    border-radius: 15px;
+}
+
+.image-container {
+    display: flex;
+    padding: 5px;
+    width: 250px;
+}
+
+.image-container img {
+    width: 70px;
+    height: 70px;
+}
+
+.buttons .cartButtons {
+    font-size: 12px;
+    color: gray;
+    border-radius: 50px;
+    width: 60px;
+    height: 25px;
+    transform: .3s eas-in;
+    border-color: rgb(221, 221, 221);
+}
+.swiperContainer {
+    padding: 0 120px;
+}
+.buttons .cartButtons:hover {
+    color: black;
+    background-color: white;
+}
+
+.item-name {
+    color: rgb(179, 84, 84);
+    font-size: 15px;
+    padding: 3px;
+    font-weight: 600;
+}
+.item-price {
+    padding: 10px;
+    font-size: 14px;
+    color: gray;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+/* ----Blog */
+
+.blogHome {
+    display: flex;
+    padding: 50px 50px;
+    flex-wrap: wrap;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 900px ){
+    .blogHome {
+        flex-direction: column;
+        padding: 0;
+        padding: 10px 10px;
+        align-items: center;
+    }
+    
+}
+@media only screen and (max-width: 1000px ){
+    .mainCartContainer {
+        padding-top: 200px;
+        padding-bottom: 20px;
+        background-color: rgb(243, 243, 243);
+        width: 100%;
+    }
+    .main {
+        margin-top: 200px;
+        padding-top: 0;
+        padding-bottom: 10px;
+        background-color: rgb(236, 243, 250);
+        width: 100%;
+    }
+    .blogHome {
+        align-items: center;
+        flex-direction: column;
+        padding: 60px 30px;
+    }
+    .basket {
+      display: none;
+    }
+    .swiperContainer {
+        padding: 0 3px;
+    }
+    .cartWrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 50px;
+    }
+  }
