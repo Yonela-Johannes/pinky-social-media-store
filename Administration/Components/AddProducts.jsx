@@ -13,7 +13,7 @@ const Addproducts = () => {
         newProduct.push(newProduct.name = {newProduct})
     }
     return (
-        <div>
+        <div className="bg-[gray]">
             <div className='border-b border-gray-600 max-w-2xl flex items-center justify-center text-center'>
                 <h2 className={`head `}>Add Products</h2>
             </div>

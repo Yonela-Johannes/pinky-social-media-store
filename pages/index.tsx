@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../Components/NavBar/Navbar'
 import { getProviders, getSession, SessionProvider, useSession } from "next-auth/react";
-import { Route, Routes, Navigate } from 'react-router-dom'
+// import { Route, Routes, Navigate } from 'react-router-dom'
 import SignUp from '../Components/Auth/SignUp';
 import ShoppingCart from '../pages/ShoppingCart';
 import Admin from '../Administration/pages/Admin';
@@ -9,14 +9,16 @@ import Feeds from '../pages/Feeds';
 import Home from '../pages/Home';
 import Product from '../Components/Product';
 import Footer from '../Components/Footer/Footer';
-import Signin  from '../pages/Signin';
-// import './app.css'
 import Blog from '../pages/Blog';
 import Post from '../Components/BlogCard/Post';
-// import "../styles/global.css"
+import SignIn from './SignIn';
+
+
+
 const HomeIndex = ({providers}) => {
+
   const { data: session } = useSession();
-  console.log(session)
+
   const emptyItem = []
   // localStorage.setItem('emptyItem', JSON.stringify(emptyItem))
   const [products, setProducts ] = useState([])
@@ -111,7 +113,10 @@ const HomeIndex = ({providers}) => {
     <div className='app'>
         <Navbar countCartItems={cartItems.length} user={user} admin={admin}/>
         {/* <Signin providers={providers} /> */}
-        <Admin />
+        <div className='main'>
+          {(!session) && <SignIn providers={providers} />}
+        </div>
+        {/* <Admin /> */}
           {/* <Home products={products} /> */}
         <Footer />
     </div>   
@@ -121,9 +126,9 @@ const HomeIndex = ({providers}) => {
 export default HomeIndex;
 
 export async function getServerSideProps (context){
+
   const providers = await getProviders();
   const session = await getSession(context);
-
   return {
     props: {
       providers,

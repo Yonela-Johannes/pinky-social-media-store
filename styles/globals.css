@@ -1,3 +1,9 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import url("https://use.typekit.net/tmp7knw.css");
+
+
 .app{
     display: flex;
     flex-direction: column;

@@ -5,8 +5,11 @@ export default NextAuth({
   secret: process.env.SECRET,
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      // clientId: process.env.GOOGLE_ID,
+      GOOGLE_CLIENT_ID: "21402435076-csgjc2b7ji8c77dmgblo97emmgp5aor4.apps.googleusercontent.com",
+      // clientSecret: process.env.GOOGLE_SECRET,
+      GOOGLE_CLIENT_SECRET: "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",
+      // NEXTAUTH_URL: "http://localhost:3000"
     }),
   ],
   callbacks: {
