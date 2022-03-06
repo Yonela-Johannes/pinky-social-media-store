@@ -8,14 +8,8 @@ import styles from '../../styles/Navbar.module.css'
 
 const Navbar = ( props ) => {
   const { countCartItems, user, admin } = props;
-
-  const LogoImage = {
-    width: 40,
-    height: 50,
-    borderRadius: 25,
-    padding: 5,
-}
-
+  console.log(user)
+  console.log(user?.photoURL)
   return (
          <nav className={styles.navbar}>
               <div className={styles.grow}>
@@ -26,10 +20,10 @@ const Navbar = ( props ) => {
                 { user ? (
                   <ul className={styles.list}>
                     <li className='listItem'>
-                      <img className='avatar' src={user.image} alt='' />
+                      <Image width={40} height={40} className='avatar' src={user.photoURL} alt='' />
                     </li>
-                    <li className='listItem username'>{user?.userName}</li>
-                    <li className='listItem jobTitle'>{user.jobTitle}</li>
+                    <li className='listItem username'>{user?.displayName}</li>
+                    <li className='listItem jobTitle'>{user?.email}</li>
                   </ul>
                 ) : (
                   // <Link to='/signin'>

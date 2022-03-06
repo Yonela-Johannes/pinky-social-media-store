@@ -12,10 +12,12 @@ import Footer from '../Components/Footer/Footer';
 import Blog from '../pages/Blog';
 import Post from '../Components/BlogCard/Post';
 import SignIn from './signin';
+import { useRouter } from 'next/router';
+import { userAccesToken } from '../utils/fetchUserDetails'
+import { fetchUser } from '../utils/fetchUserDetails'
 
 
-
-const HomeIndex = ({providers}) => {
+const index = ({providers}) => {
 
   const { data: session } = useSession();
 
@@ -24,11 +26,14 @@ const HomeIndex = ({providers}) => {
   const [products, setProducts ] = useState([])
   const [cartItems, setCartItems] = useState([]);
   const admin = true;
-  const user = [{
-    userName: "Yonela Johannes"
-  }]
+  const [user,setUser] = useState({})
   const message = 'Be Pleasured By Pinky'
   
+
+  useEffect(() => {
+    const [userInfo] = fetchUser()
+    setUser(userInfo)
+  }, [])
   // const onAdd = (product) => {
   //   const exist = cartItems.find(x => x._id === product._id)
   //   if(exist){
@@ -123,7 +128,7 @@ const HomeIndex = ({providers}) => {
   );
 }
 
-export default HomeIndex;
+export default index;
 
 export async function getServerSideProps (context){
 
