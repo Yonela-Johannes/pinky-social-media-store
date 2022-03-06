@@ -11,7 +11,7 @@ import Product from '../Components/Product';
 import Footer from '../Components/Footer/Footer';
 import Blog from '../pages/Blog';
 import Post from '../Components/BlogCard/Post';
-import SignIn from './SignIn';
+import SignIn from './signin';
 
 
 
@@ -114,7 +114,7 @@ const HomeIndex = ({providers}) => {
         <Navbar countCartItems={cartItems.length} user={user} admin={admin}/>
         {/* <Signin providers={providers} /> */}
         <div className='main'>
-          {(!session) && <SignIn providers={providers} />}
+          {/* {(!session) && <SignIn providers={providers} />} */}
         </div>
         {/* <Admin /> */}
           {/* <Home products={products} /> */}
