@@ -1,0 +1,126 @@
+
+.cartHead{
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: .2px solid grey;
+    padding:  5px 0;
+}
+
+.mainCartContainer {
+    background-color: rgb(255, 255, 255);
+    width: 240px;
+}
+.cartContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartBasketContainer{
+    color: rgb(89, 89, 89);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+}
+.cartWrapper {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.cartHead {
+    font-weight: bold;
+}
+
+
+.cartIcon:hover{
+    color: black;
+}
+
+.mainContainer {
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    margin: 10px;
+    border-bottom: .5px solid rgb(226, 226, 226);
+}
+
+.imageContainer {
+    display: flex;
+    padding: 5px;
+    width: 250px;
+}
+
+.cartImage {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.button{
+    text-decoration: none;
+}
+button.homeShoppingCartButton{
+    display: flex;
+    flex-direction: row;
+    align-items:  center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: rgb(249, 195, 195);
+    width: 180px;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: rgb(109, 109, 109);
+    cursor: pointer;
+    border: .5px solid rgba(164, 164, 164, 0.755);
+    border-radius: 5px;
+    transition: .2s ease-in;
+}
+button.homeShoppingCartButton:hover{
+    border-color: rgb(91, 91, 91);
+    color:rgb(77, 77, 77);
+    background-color: pink;
+}
+
+
+
+/* .buttons .cartButtons {
+    font-size: 12px;
+    color: gray;
+    border-radius: 50px;
+    width: 60px;
+    height: 25px;
+    transform: .3s eas-in;
+    border-color: rgb(221, 221, 221);
+}
+.swiperContainer {
+    padding: 0 120px;
+}
+.buttons .cartButtons:hover {
+    color: black;
+    background-color: white;
+} */
+
+/* .item-name {
+    color: rgb(179, 84, 84);
+    font-size: 15px;
+    padding: 3px;
+    font-weight: 600;
+}
+.item-price {
+    padding: 10px;
+    font-size: 14px;
+    color: gray;
+    font-weight: 600;
+    margin-left: 5px;
+} */

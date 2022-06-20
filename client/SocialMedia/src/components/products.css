@@ -1,0 +1,137 @@
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: rgb(190, 190, 190);
+    border-radius: 15px;
+    border: .2px solid pink;
+    width: 200px;
+    cursor: pointer;
+    margin: 30px 20px;
+    transition: all .2s ease-in-out;
+}
+
+.productContainer:hover{
+    border-color: rgb(169, 169, 169);
+    background-color: pink;
+    box-shadow: 1px 1px 10px rgba(222, 96, 117, 0.438);
+}
+
+.productName{
+    padding: 10px;
+}
+.productImage{
+    width: 198px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.bottomCardContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: end;
+    text-align: center;
+    color: black;
+    background-color: rgb(170, 169, 169);
+    border-radius: 16px;
+    width: 100%;
+}
+.priceContainer {
+    background-color: rgb(255, 155, 170);
+    /* width: 100%; */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.price{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+
+.rand{
+    font-size: 13px;
+    color: rgb(73, 73, 73);
+    margin: 0 5px;
+    font-weight: bold;
+}
+.previous{
+    color: gray;
+}
+.oldPrice{
+    color: gray;
+    text-decoration: line-through;
+}
+.previousPrice{
+    font-size: 14px;
+    color: gray;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+.newPrice{
+    font-size: 18px;
+}
+.currentPrice{
+    font-size: 14px;
+    color: gray;
+    font-weight: normal;
+}
+.stockContainer{
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 10px;
+    border-radius:0 0 15px 15px;
+    background-color: white;
+}
+
+button{
+    width: 100px;
+    font-size: 14px;
+    padding: 3px 10px;
+    margin: 5px;
+    background-color: pink;
+    cursor: pointer;
+    border: .5px solid rgba(255, 122, 144, 0.755);
+    border-radius: 5px;
+}
+button.homeCartButton{
+    display: flex;
+    flex-direction: row;
+    align-items:  center;
+    justify-content: flex-start;
+    color: grey;
+    width: 100px;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: white;
+    cursor: pointer;
+    border: .5px solid rgb(193, 193, 193);
+    border-radius: 5px;
+    transition: .2s ease-out;
+}
+
+button.homeCartButton:hover{
+    color: black;
+    border-color: gray;
+}
+.homeCartButton > div{
+    font-size: 10px;
+    color: grey;
+}
+
+button:hover {
+    background-color: white;
+}
+.text-right {
+    text-align: right;
+}
+.homeCartIcon{
+    font-size: 18px;
+    padding: 3px 5px 3px 0;
+}

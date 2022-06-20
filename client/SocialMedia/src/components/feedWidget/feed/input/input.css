@@ -1,0 +1,27 @@
+.newPostButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: pink;
+    padding: 10px 15px;
+    border: 1px solid pink;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(66, 66, 66);
+}
+
+.newPostButton:hover{
+    background-color: grey;
+}
+.sendIcon{
+    margin: 0 3px;
+}
+
+.titles{
+    color: rgb(0, 0, 0);
+    padding: 0 15px;
+}
+
+.filebase{
+    display: none;
+}
