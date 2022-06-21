@@ -18,14 +18,14 @@ export default function Input({user, showCreatePost, setShowCreatePost}) {
   const [postData, setPostData] = useState({creator: '', title: '', input: '', message: '', tags: '', selectedFile: null})
 
   const sendPost = (e) => {
-    e.preventDefault()
+    e.preventDefault() 
     dispatch(createPost(postData))
   }
 
 const onImageChange = (e) => {
   if(e.target.files && e.target.files[0]){
     let img = e.target.files[0]
-    setPostData({postData, selectedFile: URL.createObjectURL(img)})
+    setPostData({...postData, selectedFile: URL.createObjectURL(img)})
   }
 }
   return (

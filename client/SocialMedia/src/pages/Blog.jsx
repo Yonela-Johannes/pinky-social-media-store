@@ -1,11 +1,23 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { getBlogs } from '../actions/blogs'
+import { BsPencilSquare } from "react-icons/bs";
 import './styles.css';
 import React, {useState, useEffect} from 'react';
 import BlogCard from '../components/BlogCard/BlogCard';
+import Input from '../components/input/input';
 
 export default function Blog({user, admin}) {
-
+    const blogs = useSelector((state) => state.blogs)
+    const dispatch = useDispatch()
+    const [showCreateBlog, setShowCreateBlog] = useState(false)
+    
     // const [blogPost, setBlogPost] = useState(null) 
     
+    console.log(blogs)
+    useEffect(() => {
+        dispatch(getBlogs())
+    }, [dispatch])
+
     const blogPost = [
         {
         id: 1,
@@ -37,6 +49,10 @@ Try to take the images against a plain background.`,
     return (
         <div className='main'>
           <h2 className='head'>Explore</h2>
+                <div className='post'>
+                    <BsPencilSquare className='icon' onClick={() => setShowCreateBlog(!showCreateBlog)}/>
+                </div>
+                {showCreateBlog && (<Input user={user} showCreateBlog={showCreateBlog} setShowCreateBlog={setShowCreateBlog} />)}
                 <div className='blogHome'>
                     {blogPost.map(blog => (
                         <BlogCard key={blog.id} blog={blog} user={user} />

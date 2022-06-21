@@ -28,9 +28,11 @@
 .subhead{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
     background-color: rgb(249, 209, 209);
     padding: 0 20px;
+    width: 100%;
 }
 
 .postImageContainer{

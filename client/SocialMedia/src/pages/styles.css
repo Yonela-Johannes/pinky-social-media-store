@@ -3,6 +3,13 @@
     background-color: rgb(243, 243, 243);
     width: 100%;
 }
+.blogMainContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    align-items: flex-end;
+    padding: 5px;
+}
 .testimonials {
     display: flex;
     flex-direction: column;

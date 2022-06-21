@@ -1,13 +1,22 @@
-// import Basket from './Basket';
-// import Spinner from '../Components/Post/Feed.js/Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getProducts } from '../../actions/products'
 import Products from '../../components/Products';
 import './styles.css'
 import { BsCartCheck } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { Announcement } from '../../components/Announcement';
+
+
 const Home = ( props ) => {
-  
-  const { products, onAdd, onRemove, cartItems, text } = props;
+  const dispatch = useDispatch()
+  const productss = useSelector((state) => state.products)
+  const {products, onAdd, onRemove, cartItems, text } = props;
+
+  console.log(productss)
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [dispatch])
 
   return (
     <main className='main'>
