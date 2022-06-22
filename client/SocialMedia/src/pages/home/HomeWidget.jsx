@@ -30,12 +30,12 @@ const Home = ( props ) => {
           <div className="products">
               {
                 products.map(product => (
-                  <Products onAdd={onAdd} product={product} cartItems={cartItems} setCurrentId={setCurrentId} />
+                  <Products onAdd={onAdd} product={product} cartItems={cartItems} setCurrentId={setCurrentId}  showAdd={showAdd} setShowAdd={setShowAdd}/>
                   ))
                 }
           </div>
         </div>
-      {showAdd && (<ProductInput user={user} currentId={currentId} setCurrentId={setCurrentId}   showAdd={showAdd} setShowAdd={setShowAdd}/>)}
+      {showAdd && (<ProductInput user={user} currentId={currentId} setCurrentId={setCurrentId} showAdd={showAdd} setShowAdd={setShowAdd}/>)}
     </main>
   )
 };

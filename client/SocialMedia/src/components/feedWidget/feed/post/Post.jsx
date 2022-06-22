@@ -9,8 +9,12 @@ import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-function Post({ user, post, currentId, setCurrentId}) {
-    console.log(post)
+function Post({ user, post, currentId, setCurrentId, showCreatPost, setShowCreatePost}) {
+  
+    const postEdit = () => {
+        setShowCreatePost(!showCreatPost)
+        setCurrentId(post._id)
+    }
     return (
         <div className="postContainer">
             <div className="post__top">
@@ -22,7 +26,7 @@ function Post({ user, post, currentId, setCurrentId}) {
                         <p className='date'>{moment(post?.createdAt).fromNow()}</p>
                     </div>
                 </div>
-                <AiFillEdit className='icon edit' onClick={() => setCurrentId(post._id)} />
+                <AiFillEdit className='icon edit' onClick={postEdit} />
                 <MdDelete className='icon delete' />
             </div>
             <div className="post__bottom">

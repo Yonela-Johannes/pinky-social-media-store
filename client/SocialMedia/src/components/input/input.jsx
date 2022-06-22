@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createBlog, updateBlog } from '../../actions/blogs'
 import { IoMdClose} from "react-icons/io";
@@ -7,11 +7,16 @@ import { GrFormClose } from "react-icons/gr";
 import { BiSend } from "react-icons/bi";
 
 const Input = ({user, showCreateBlog, setShowCreateBlog, currentId}) => {
+ const blog = useSelector((state) => currentId ? state.blogs.find((b) => b._id === currentId) : null)
     const dispatch = useDispatch()
     const filePickerRef = useRef(null)
     const [blogData, setBlogData] = useState({
         title: '', image: '', description: '', message: '', likeCount: 0,
     })
+
+  useEffect(() => {
+    if(blog) setBlogData(blog)
+  }, [blog])
 
     const sendBlog = (e) => {
         e.preventDefault()

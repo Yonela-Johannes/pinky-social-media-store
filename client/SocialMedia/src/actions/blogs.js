@@ -21,7 +21,7 @@ export const createBlog = (blog) => async (dispatch) => {
 
 export const updateBlog = (id, blog) => async (dispatch) => {
     try {
-        const { data } = await api.updateBlog(id.post)
+        const { data } = await api.updateBlog(id, blog)
         dispatch({ type: 'UPDATE', payload: data })
     } catch (error) {
         console.log(error.message)

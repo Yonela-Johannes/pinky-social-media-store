@@ -1,17 +1,22 @@
+import {useState, useEffec, useEffect } from 'react';
 import './card.css'
 import { Link } from 'react-router-dom'
 import logo from "../../img/logopinky.png"
-import moment from 'moment'
+import { useSelector, useDispatch } from 'react-redux';
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-export default function BlogCard( {user, blog, currentId, setCurrentId } ) {
+export default function BlogCard( {user, blog, currentId, setCurrentId, showCreateBlog, setShowCreateBlog} ) {
+
+  const editBlog = () => {
+    setShowCreateBlog(!showCreateBlog)
+    setCurrentId(blog._id)
+  }
   return (
       <div className='card'>
-        <Link to={'/blogs/'+ blog.id}>
           <div className="blogPostHead">
-                        <p className='desc'>{user?.name}</p>
+              <p className='desc'>{user?.name}</p>
             <img className='userImage blogImage' src={user?.image} alt='' />
           </div>
           <div className="blogPostContent">
@@ -22,7 +27,9 @@ export default function BlogCard( {user, blog, currentId, setCurrentId } ) {
             </div>
             <div className="blogPostBody">
               <div>
-                <button className='blogButton' >read more...</button>
+                <Link to={'/blogs/'+ blog.id}>
+                  <button className='blogButton' >read more...</button>
+                </Link>
               </div>
               <div className='userDetailsContainer'>
                 <img className='userImage blogImage' src={logo} alt='' />
@@ -34,11 +41,10 @@ export default function BlogCard( {user, blog, currentId, setCurrentId } ) {
                     <p>{blog?.likeCount}</p>
                 </div>
                 <div className='blogBottomContainer'>
-                    <AiFillEdit className='icon blogEdit' onClick={() => setCurrentId(blog._id)} />
+                    <AiFillEdit className='icon blogEdit' onClick={editBlog} />
                     <MdDelete className='icon blogDelete' />
                 </div>
           </div>
-        </Link>
       </div>
   ) 
 }

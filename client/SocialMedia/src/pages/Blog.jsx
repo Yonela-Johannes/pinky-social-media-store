@@ -22,10 +22,10 @@ export default function Blog({user, admin}) {
                 <div className='post'>
                     <BsPencilSquare className='icon' onClick={() => setShowCreateBlog(!showCreateBlog)}/>
                 </div>
-                {showCreateBlog && (<Input currentId={currentId} setCurrentId={setCurrentId} showCreateBlog={showCreateBlog} setShowCreateBlog={setShowCreateBlog} />)}
+                {showCreateBlog && (<Input user={user} currentId={currentId} setCurrentId={setCurrentId} showCreateBlog={showCreateBlog} setShowCreateBlog={setShowCreateBlog} />)}
                 <div className='blogHome'>
                     {blogs.map(blog => (
-                        <BlogCard setCurrentId={setCurrentId} key={blog.id} blog={blog} user={user} />
+                        <BlogCard setCurrentId={setCurrentId} key={blog.id} blog={blog} user={user} showCreateBlog={showCreateBlog} setShowCreateBlog={setShowCreateBlog} />
                         ))
                     }
                 </div>

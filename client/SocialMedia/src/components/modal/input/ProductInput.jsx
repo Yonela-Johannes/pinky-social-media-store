@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react'
-import { useDispatch } from 'react-redux'
+import React, {useState, useRef, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { createProduct, updateProduct } from '../../../actions/products'
 import { IoMdClose} from "react-icons/io";
 import { HiOutlinePhotograph } from "react-icons/hi";
@@ -11,7 +11,12 @@ const PostInput = ({user, showAdd, setShowAdd , currentId}) => {
     const dispatch = useDispatch()
     const filePickerRef = useRef(null)
     const [productData, setProductData] = useState({product: '', image: '', previousPrice: '', price: '', quanityStock: '', likesCount: 0})
-    
+    const product = useSelector((state) => currentId ? state.products.find((p) => p._id === currentId) : null) 
+
+    useEffect(() => {
+        if(product) setProductData(product)
+    }, [product])
+
     const addImageToPost = (e) => {
         if(e.target.files && e.target.files[0]){
             let img = e.target.files[0]

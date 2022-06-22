@@ -1,11 +1,16 @@
-import React from 'react';
+import {useState, useEffec } from 'react';
 import './products.css'
 import { FaCartArrowDown } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 export default function Product( props ) {
-    const { product, onAdd, currentId, setCurrentId } = props;
+    const { product, onAdd, currentId, setCurrentId, showAdd, setShowAdd } = props;
+
+    const editProduct = () => {
+        setShowAdd(!showAdd)
+        setCurrentId(product._id)
+    }
     return(
         <div className='productContainer'>
                 <div className='productName'>{product?.item.name}</div>
@@ -26,7 +31,7 @@ export default function Product( props ) {
                         </div>
                     </div>
                     <div className='productBottomContainer'>
-                        <AiFillEdit className='icon' onClick={() => setCurrentId(product._id)} />
+                        <AiFillEdit className='icon' onClick={editProduct} />
                         <MdDelete className='icon' />
                     </div>
                     <div className='stockContainer'>

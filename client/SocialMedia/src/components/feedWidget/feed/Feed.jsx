@@ -26,7 +26,7 @@ function Feed( {user, admin} ) {
             </div>
             <div className="mainPostContainerBox">
                 {posts.map(post => (
-                    <Post user={user} post={post} setCurrentId={setCurrentId}  />
+                    <Post user={user} post={post} setCurrentId={setCurrentId} showCreatePost={showCreatePost} setShowCreatePost={setShowCreatePost}  />
                 ))}
             </div>
             {showCreatePost && (<Input user={user} currentId={currentId} setCurrentId={setCurrentId}  showCreatePost={showCreatePost} setShowCreatePost={setShowCreatePost} />)}

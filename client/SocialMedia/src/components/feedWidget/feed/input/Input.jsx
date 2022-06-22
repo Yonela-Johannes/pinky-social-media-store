@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { createPost, updatePost } from '../../../../actions/posts'
 import 'emoji-mart/css/emoji-mart.css';
@@ -9,11 +9,15 @@ import { BiImageAdd } from "react-icons/bi";
 import './input.css'
 
 export default function Input({user, showCreatePost, setShowCreatePost, currentId}) {
-  const posts = useSelector((state) => state.posts)
 
   const dispatch = useDispatch()
   const imageRef = useRef()
   const [postData, setPostData] = useState({creator: '', title: '', input: '', message: '', tags: '', selectedFile: null})
+ const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
+
+    useEffect(() => {
+      if(post) setPostData(post)
+    }, [post])
 
   const onImageChange = (e) => {
       if(e.target.files && e.target.files[0]){
