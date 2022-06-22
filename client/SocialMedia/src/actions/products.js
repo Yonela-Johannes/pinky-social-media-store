@@ -6,7 +6,7 @@ export const getProducts = () => async (dispatch) => {
         const { data } = await api.fetchProducts();
         dispatch({ type: 'FETCH_ALL', payload: data })
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 
@@ -15,7 +15,7 @@ export const createProduct = (product) => async (dispatch) => {
         const { data } = await api.createProduct(product)
         dispatch({ type: 'CREATE', payload: data })
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 
@@ -24,6 +24,33 @@ export const updateProduct = (id, product) => async (dispatch) => {
         const { data } = await api.updateProduct(id, product)
         dispatch({ type: 'UPDATE', payload: data })
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
+    }
+}
+
+export const deleteProduct = (id) => async (dispatch) => {
+    try {
+        await api.deleteProduct(id)
+        dispatch({ type: 'DELETE', payload: id })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const likeProduct = (id) => async (dispatch) => {
+    try {
+        const { data } = await api.likeProduct(id)
+        dispatch({ type: 'UPDATE', payload: data })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const recommendProduct = (id) => async (dispatch) => {
+    try {
+        const { data } = await api.recommendProduct(id)
+        dispatch({ type: 'UPDATE', payload: data })
+    } catch (error) {
+        console.log(error)
     }
 }

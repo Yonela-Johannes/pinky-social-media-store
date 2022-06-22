@@ -12,6 +12,7 @@ export default function Blog({user, admin}) {
     const [showCreateBlog, setShowCreateBlog] = useState(false)
     const [currentId, setCurrentId] = useState(null)
 
+
     useEffect(() => {
         dispatch(getBlogs())
     }, [dispatch])

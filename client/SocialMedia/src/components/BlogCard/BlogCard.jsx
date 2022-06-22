@@ -1,14 +1,15 @@
-import {useState, useEffec, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteBlog, likeBlog } from '../../actions/blogs'
 import './card.css'
 import { Link } from 'react-router-dom'
 import logo from "../../img/logopinky.png"
-import { useSelector, useDispatch } from 'react-redux';
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 export default function BlogCard( {user, blog, currentId, setCurrentId, showCreateBlog, setShowCreateBlog} ) {
-
+  const dispatch = useDispatch()
   const editBlog = () => {
     setShowCreateBlog(!showCreateBlog)
     setCurrentId(blog._id)
@@ -36,13 +37,13 @@ export default function BlogCard( {user, blog, currentId, setCurrentId, showCrea
                 <p className='pinky'>BePleasuredByPinky</p>
               </div>
             </div>
-                <div className="post__option bloglike">
+                <div className="post__option bloglike" onClick={() => dispatch(likeBlog(blog._id))}>
                     <BsSuitHeart />
                     <p>{blog?.likeCount}</p>
                 </div>
                 <div className='blogBottomContainer'>
                     <AiFillEdit className='icon blogEdit' onClick={editBlog} />
-                    <MdDelete className='icon blogDelete' />
+                    <MdDelete className='icon blogDelete' onClick={() => dispatch(deleteBlog(blog._id))} />
                 </div>
           </div>
       </div>

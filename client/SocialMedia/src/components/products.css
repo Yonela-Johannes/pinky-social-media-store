@@ -144,3 +144,32 @@ button:hover {
     font-size: 18px;
     padding: 3px 5px 3px 0;
 }
+
+.productIconsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.likeCounters{
+    font-size: 13px;
+    color: rgb(159, 159, 159);
+}
+.productIcons{
+    font-size: 28px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: transparent;
+    color: rgb(193, 193, 193);
+    transition: all .1s ease-in;
+}
+.productIcons:hover{
+    color: white;
+    background-color: rgb(32, 32, 32);
+}
+
+.productReactIcons:hover{
+    color: black;
+    background-color: rgb(206, 206, 206);
+}

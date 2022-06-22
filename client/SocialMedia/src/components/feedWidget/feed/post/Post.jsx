@@ -1,3 +1,6 @@
+import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import { deletePost, likePost, upvokePost } from '../../../../actions/posts'
 import moment from 'moment'
 import './post.css';
 // import { Avatar } from "@material-ui/core";
@@ -10,11 +13,13 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 function Post({ user, post, currentId, setCurrentId, showCreatPost, setShowCreatePost}) {
-  
+      const dispatch = useDispatch()
+
     const postEdit = () => {
         setShowCreatePost(!showCreatPost)
         setCurrentId(post._id)
     }
+    console.log(post)
     return (
         <div className="postContainer">
             <div className="post__top">
@@ -27,7 +32,7 @@ function Post({ user, post, currentId, setCurrentId, showCreatPost, setShowCreat
                     </div>
                 </div>
                 <AiFillEdit className='icon edit' onClick={postEdit} />
-                <MdDelete className='icon delete' />
+                <MdDelete className='icon delete' onClick={() => dispatch(deletePost(post._id))} />
             </div>
             <div className="post__bottom">
                 <p className='message'>{post?.message}</p>
@@ -37,13 +42,13 @@ function Post({ user, post, currentId, setCurrentId, showCreatPost, setShowCreat
                <p>{post?.title}</p>
             </div>
             <div className="post__options">
-                <div className="post__option">
+                <div className="post__option" onClick={() => dispatch(likePost(post._id))}>
                     <BsSuitHeart />
                     <p>{post?.likeCount}</p>
                 </div>
-                <div className="post__option">
+                <div className="post__option" onClick={() => dispatch(upvokePost(post._id))}>
                     <AiOutlineLike/>
-                    <p>{post?.starCount}</p>
+                    <p>{post?.upvokesCount}</p>
                 </div>
                 <div className="post__option">
                     <ChatBubbleOutlineIcon />

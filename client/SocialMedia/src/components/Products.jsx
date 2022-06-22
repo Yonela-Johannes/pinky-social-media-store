@@ -1,11 +1,16 @@
-import {useState, useEffec } from 'react';
+import React, {useState, useEffect} from 'react';
+import { deleteProduct } from '../actions/products'
 import './products.css'
+import { useDispatch } from 'react-redux';
 import { FaCartArrowDown } from "react-icons/fa";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 
 export default function Product( props ) {
     const { product, onAdd, currentId, setCurrentId, showAdd, setShowAdd } = props;
+    const dispatch = useDispatch()
+    console.log(product)
 
     const editProduct = () => {
         setShowAdd(!showAdd)
@@ -31,12 +36,22 @@ export default function Product( props ) {
                         </div>
                     </div>
                     <div className='productBottomContainer'>
-                        <AiFillEdit className='icon' onClick={editProduct} />
-                        <MdDelete className='icon' />
+                        <AiFillEdit className='productIcons' onClick={editProduct} />
+                        <MdDelete className='productIcons' onClick={() => dispatch(deleteProduct(product._id))} />
                     </div>
                     <div className='stockContainer'>
                         <button className="homeCartButton"  onClick={() => onAdd(product)}><FaCartArrowDown className='homeCartIcon' /><div>Add To Cart</div></button>
                         <p>In Stock</p>
+                        <div className='productIconsContainer'>
+                            <div>
+                                <BsSuitHeart className='productIcons productReactIcons' />
+                                <p className='likeCounters'>{product?.item.loveCount}</p>
+                            </div>
+                            <div>
+                                <AiOutlineStar  className='productIcons productReactIcons' />
+                                <p className='likeCounters'>{product?.item.recommendCount} </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
          </div>
