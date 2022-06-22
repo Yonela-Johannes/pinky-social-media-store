@@ -16,10 +16,9 @@ const FeedWidget = ({user, products, onAdd, onRemove, cartItems, text}) => {
   return (
     <div className='mainContainersWidget'>
         <Routes>
-          <Route path='/products' element={<HomeWidget products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} text={text} />} />
+          <Route path='/products' element={<HomeWidget user={user} products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} text={text} />} />
           <Route path='/feeds' element={<Feeds user={user} />} />
           <Route path='/blogs' element={<Blog user={user} />} />
-          <Route path='/blogs/:slug' element={<Blog />} />
         </Routes>
     </div>
   )

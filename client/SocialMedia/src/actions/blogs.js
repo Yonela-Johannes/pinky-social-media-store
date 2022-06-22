@@ -18,3 +18,12 @@ export const createBlog = (blog) => async (dispatch) => {
         console.log(error.message)
     }
 }
+
+export const updateBlog = (id, blog) => async (dispatch) => {
+    try {
+        const { data } = await api.updateBlog(id.post)
+        dispatch({ type: 'UPDATE', payload: data })
+    } catch (error) {
+        console.log(error.message)
+    }
+}

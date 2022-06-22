@@ -6,9 +6,10 @@
 .blogMainContainer{
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    background-color: rgb(89, 89, 89);
     align-items: flex-end;
     padding: 5px;
+    border-radius: 15px;
 }
 .testimonials {
     display: flex;

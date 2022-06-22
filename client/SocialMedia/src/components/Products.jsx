@@ -1,9 +1,11 @@
 import React from 'react';
 import './products.css'
 import { FaCartArrowDown } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
+import { MdDelete } from "react-icons/md";
 
 export default function Product( props ) {
-    const { product, onAdd } = props;
+    const { product, onAdd, currentId, setCurrentId } = props;
     return(
         <div className='productContainer'>
                 <div className='productName'>{product?.item.name}</div>
@@ -22,9 +24,13 @@ export default function Product( props ) {
                             <p className='rand'>R</p>
                             <p className='newPrice'>{product?.item.price}</p>                            
                         </div>
-                        <button className="homeCartButton"  onClick={() => onAdd(product)}><FaCartArrowDown className='homeCartIcon' /><div>Add To Cart</div></button>
+                    </div>
+                    <div className='productBottomContainer'>
+                        <AiFillEdit className='icon' onClick={() => setCurrentId(product._id)} />
+                        <MdDelete className='icon' />
                     </div>
                     <div className='stockContainer'>
+                        <button className="homeCartButton"  onClick={() => onAdd(product)}><FaCartArrowDown className='homeCartIcon' /><div>Add To Cart</div></button>
                         <p>In Stock</p>
                     </div>
                 </div>

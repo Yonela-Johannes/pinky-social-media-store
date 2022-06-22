@@ -16,9 +16,7 @@ const store = createStore(reducers, compose(applyMiddleware(thunk)))
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      {/* <StateProvider initialState={initialState} reducer={reducer}> */}
-        <App />
-      {/* </StateProvider> */}
+      <App />
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

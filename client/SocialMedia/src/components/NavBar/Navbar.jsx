@@ -6,10 +6,8 @@ import Logo from '../../imgdata/logopinky.png'
 import { Link } from 'react-router-dom';
 
 import'./navbar.css'
-import { MdOutlineAddBusiness } from "react-icons/md"
 import { MdOutlineLogout } from "react-icons/md"
 import { useState } from 'react';
-import { NewProduct } from '../modal/NewProduct';
 
 const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) => {
   const [showLogoutList, setShowLogoutList] =useState(false)
@@ -35,9 +33,6 @@ const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) =
                     {showLogoutList && (
                         <div className='popupList'>
                           <div className='popupListContent'>
-                            <p onClick={() => setShowAdd(!showAdd)}>New Item</p><MdOutlineAddBusiness className='icon listIcon' />
-                          </div>
-                          <div className='popupListContent'>
                             <p>Logout</p> <MdOutlineLogout className='icon listIcon' />
                           </div>
                         </div>
@@ -58,9 +53,7 @@ const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) =
                   </div>
                   // </Link>
                 )}
-
               <Navigation countCartItems={countCartItems}  user={user}  products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
-              {showAdd && (<NewProduct  showAdd={showAdd} setShowAdd={setShowAdd}/>)}
               </div>
         </nav>
   )

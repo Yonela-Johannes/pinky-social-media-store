@@ -1,40 +1,41 @@
 import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { createPost } from '../../../../actions/posts'
-import Filebase from 'react-file-base64'
+import { createPost, updatePost } from '../../../../actions/posts'
 import 'emoji-mart/css/emoji-mart.css';
-import { Picker } from 'emoji-mart';
-import { BsEmojiDizzyFill } from "react-icons/bs";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { BiSend } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
 import { BiImageAdd } from "react-icons/bi";
 import './input.css'
 
-export default function Input({user, showCreatePost, setShowCreatePost}) {
+export default function Input({user, showCreatePost, setShowCreatePost, currentId}) {
   const posts = useSelector((state) => state.posts)
+
   const dispatch = useDispatch()
   const imageRef = useRef()
   const [postData, setPostData] = useState({creator: '', title: '', input: '', message: '', tags: '', selectedFile: null})
 
+  const onImageChange = (e) => {
+      if(e.target.files && e.target.files[0]){
+        let img = e.target.files[0]
+        setPostData({...postData, selectedFile: URL.createObjectURL(img)})
+      }
+  }
   const sendPost = (e) => {
     e.preventDefault() 
-    dispatch(createPost(postData))
+    if(currentId){
+      dispatch(updatePost(currentId, postData))
+    }else{
+      dispatch(createPost(postData))
+    }
   }
-
-const onImageChange = (e) => {
-  if(e.target.files && e.target.files[0]){
-    let img = e.target.files[0]
-    setPostData({...postData, selectedFile: URL.createObjectURL(img)})
-  }
-}
   return (
     <div className='mainPostContainer'>
       <div className='mainPostWrapper'>
         <div className='exitIcon'>
           <GrFormClose className='icon' onClick={()=> setShowCreatePost(!showCreatePost)} />
         </div>
-        <form onSubmit={sendPost} className={`p-3 overflow-y-hidden overflow-x-hidden`}>
+        <div className={`p-3 overflow-y-hidden overflow-x-hidden`}>
           <div className='postImageContainer flex items-center'>
               <img src={user?.profilePicture} alt='' className='h-10 w-10 rounded-full cursor-pointer object-cover' />
             <p className='username'>{user?.username}</p>
@@ -63,12 +64,12 @@ const onImageChange = (e) => {
                       </div>
               </div>               
                   <div className='flex item-center justify-between pt-2.5'>
-                        <div  className="newPostButton" type='submit'>Post
+                        <div  className="newPostButton" onClick={sendPost}>Post
                           <BiSend className='sendIcon' />
                         </div>
                   </div>    
             </div>              
-        </form>
+        </div>
       </div>
     </div>
   );

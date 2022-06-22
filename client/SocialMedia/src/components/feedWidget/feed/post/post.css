@@ -5,6 +5,7 @@ align-items: center;
 }
 .mainPostContainerBox{
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 .postContainer {
@@ -19,9 +20,25 @@ align-items: center;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);    
 }
 .post__top{
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    justify-content: c;
     padding: 15px;
+    width: 100%;
+}
+.edit{
+    position: absolute;
+    margin: 10px;
+    right: 0;
+    top: 0;
+}
+.delete{
+    position: absolute;
+    margin: 10px;
+    right: 0;
+    bottom: 0;
 }
 .post__avatar{
     margin-right: 10px;
@@ -66,4 +83,18 @@ align-items: center;
     color: black;
     background-color: #595959;
     border-radius: 10px;
+}
+.date{
+    font-size: 12px;
+    color: gray;
+}
+
+.title_name {
+    font-size: 12px;
+  color:rgb(142, 142, 142);
+}
+
+.message {
+    font-size: 16px;
+  color:rgb(255, 253, 253);
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     color: black;
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(53, 53, 53);
     border-radius: 15px;
     border: .2px solid pink;
     width: 200px;
@@ -13,7 +13,7 @@
 }
 
 .productContainer:hover{
-    border-color: rgb(169, 169, 169);
+    border-color: rgb(42, 42, 42);
     background-color: pink;
     box-shadow: 1px 1px 10px rgba(222, 96, 117, 0.438);
 }
@@ -35,18 +35,19 @@
     align-items: flex-end;
     text-align: center;
     color: black;
-    background-color: rgb(170, 169, 169);
+    background-color: rgb(53, 53, 53);
     border-radius: 16px;
     width: 100%;
 }
 .priceContainer {
-    background-color: rgb(255, 155, 170);
+    background-color: rgb(45, 45, 45);
     /* width: 100%; */
     padding: 10px;
     border-radius: 15px;
 }
 
 .price{
+    color: pink;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -55,7 +56,6 @@
 
 .rand{
     font-size: 13px;
-    color: rgb(73, 73, 73);
     margin: 0 5px;
     font-weight: bold;
 }
@@ -63,7 +63,8 @@
     color: gray;
 }
 .oldPrice{
-    color: gray;
+    font-size: 14px;
+    color: rgb(130, 130, 130);
     text-decoration: line-through;
 }
 .previousPrice{
@@ -82,11 +83,19 @@
     font-weight: normal;
 }
 .stockContainer{
+    color: pink;
     width: 100%;
     margin-top: 10px;
     padding: 0 10px;
     border-radius:0 0 15px 15px;
-    background-color: white;
+    background-color: rgb(33, 33, 33);
+}
+
+.productBottomContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px
 }
 
 button{
