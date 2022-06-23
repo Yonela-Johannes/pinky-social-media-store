@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 import ShoppingBasket from '../shoppingBasket/ShoppingBasket'
 import { MdOutlineDynamicFeed } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { BiLogIn } from "react-icons/bi";
+import { BiMessageRoundedDetail} from "react-icons/bi";
 import { AiOutlineShop } from "react-icons/ai";
 import { GrBlog } from "react-icons/gr";
+
 import"./navbar.css"
 
 const Navigation = (props) => {
@@ -29,10 +30,18 @@ const Navigation = (props) => {
                                             <MdOutlineShoppingBag className='icon' />
                                     </div>
                                 </li>
+
                                 <li className='navLink'>
                                     <NavLink to='/feeds'>
                                         <div aria-label='Newsfeeds' color='inherit'>
                                             <MdOutlineDynamicFeed className={`${user ? 'icon' : 'iconDisabled'}`}/>
+                                        </div>
+                                    </NavLink>
+                                    </li>
+                                <li className='navLink'>
+                                    <NavLink to='/chatmessages'>
+                                        <div aria-label='Newsfeeds' color='inherit'>
+                                            <BiMessageRoundedDetail className={`${user ? 'icon' : 'iconDisabled'}`}/>
                                         </div>
                                     </NavLink>
                                     </li>

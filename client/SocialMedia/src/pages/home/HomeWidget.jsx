@@ -10,13 +10,12 @@ import { Announcement } from '../../components/Announcement';
 import ProductInput from '../../components/modal/input/ProductInput'
 
 const Home = ( props ) => {
+  const products = useSelector((state) => state.products)
   const dispatch = useDispatch()
-  const productss = useSelector((state) => state.products)
-  const {products, onAdd, onRemove, cartItems, text, user } = props;
+  const {onAdd, onRemove, cartItems, text, user } = props;
   const [showAdd, setShowAdd] = useState(false)
-    const [currentId, setCurrentId] = useState(null)
+  const [currentId, setCurrentId] = useState(null)
 
-  console.log(productss)
   useEffect(() => {
     dispatch(getProducts())
   }, [dispatch])

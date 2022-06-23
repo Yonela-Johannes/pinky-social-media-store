@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const products = 'http://localhost:4000/products'
-const posts = 'http://localhost:4000/posts'
-const blogs = 'http://localhost:4000/blogs'
+const products = 'http://localhost:8000/products'
+const posts = 'http://localhost:8000/posts'
+const blogs = 'http://localhost:8000/blogs'
 
 // fetch products
 export const fetchProducts = () => axios.get(products)

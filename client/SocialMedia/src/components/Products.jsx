@@ -10,29 +10,27 @@ import { MdDelete } from "react-icons/md";
 export default function Product( props ) {
     const { product, onAdd, currentId, setCurrentId, showAdd, setShowAdd } = props;
     const dispatch = useDispatch()
-    console.log(product)
-
     const editProduct = () => {
         setShowAdd(!showAdd)
         setCurrentId(product._id)
     }
     return(
         <div className='productContainer'>
-                <div className='productName'>{product?.item.name}</div>
+                <div className='productName'>{product?.product}</div>
                 <div>
-                    <img className="productImage" src={product?.item.image} alt=' product ' />
+                    <img className="productImage" src={product?.image} alt=' product ' />
                 </div>
                 <div className="bottomCardContainer">
                     <div className="priceContainer">
                         <div className="price">
                             <p className='previousPrice'>was: </p>
                             <p className='rand previous'>R</p>
-                            <p className='oldPrice'>{product?.item.oldPrice}</p>  
+                            <p className='oldPrice'>{product?.previousPrice}</p>  
                         </div>
                         <div className="price">
                             <p className='currentPrice'>now</p>
                             <p className='rand'>R</p>
-                            <p className='newPrice'>{product?.item.price}</p>                            
+                            <p className='newPrice'>{product?.price}</p>                            
                         </div>
                     </div>
                     <div className='productBottomContainer'>
@@ -44,12 +42,12 @@ export default function Product( props ) {
                         <p>In Stock</p>
                         <div className='productIconsContainer'>
                             <div>
-                                <BsSuitHeart className='productIcons productReactIcons' />
-                                <p className='likeCounters'>{product?.item.loveCount}</p>
+                                <BsSuitHeart className='productIcons productReactIcons'/>
+                                <p className='likeCounters'>{product?.likeCount}</p>
                             </div>
                             <div>
                                 <AiOutlineStar  className='productIcons productReactIcons' />
-                                <p className='likeCounters'>{product?.item.recommendCount} </p>
+                                <p className='likeCounters'>{product?.recommendCount} </p>
                             </div>
                         </div>
                     </div>

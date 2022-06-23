@@ -2,9 +2,18 @@
 import "./rightWidget.css";
 
 const RightWidget = () => {
+  const rooms = ['General room', 'BePleasuredByPinky']
   return (
     <div>
-      Right
+      <div>Available Rooms</div>
+        <div>
+          {rooms.map(room => (
+            <div>
+              <div className='room'>{room}</div>
+              </div>
+          ))}
+        </div>
+
     </div>
   )
 }
