@@ -4,27 +4,33 @@ import products from './data/products'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import "./App.css"
+import { Signin } from './components/auth/Signin'
+import { Signup } from './components/auth/Signup'
 import Navbar from "./components/NavBar/Navbar";
+import { UserAuth } from "./context/AuthContext";
+
 function App() {
-  const user = {
-    username: 'Keesh',
-    name: 'Keasha A Zendaya',
-    firstname: ' Keasha A',
-    lastname: 'Zendaya',
-    email: "keasha-A@pinky.com",
-    isAdmin: false,
-    title: "customer",
-    about: '',
-    image: 'https://i0.wp.com/expatpanda.com/wp-content/uploads/2019/07/thumbnail_IMG_8793.jpg?resize=640%2C427&ssl=1',
-    profilePicture: "https://image-prod.iol.co.za/16x9/800/Ponahalo-Mojapelo-without-the-black-face-Picture-Instagram-ponahalo?source=https://xlibris.public.prod.oc.inl.infomaker.io:8443/opencontent/objects/899c6a16-161b-5d8a-b331-de37525c1792&operation=CROP&offset=0x343&resize=1080x608",
-    address: {
-      streetName: 'Parlaiment',
-      HouseNumber: "05",
-      location: 'Mfuleni',
-      postalCode: 7100,
-      city: 'Cape Town',
-    },
-  }
+  const { user } = UserAuth()
+
+  // const user = {
+  //   username: 'Keesh',
+  //   name: 'Keasha A Zendaya',
+  //   firstname: ' Keasha A',
+  //   lastname: 'Zendaya',
+  //   email: "keasha-A@pinky.com",
+  //   isAdmin: false,
+  //   title: "customer",
+  //   about: '',
+  //   image: 'https://i0.wp.com/expatpanda.com/wp-content/uploads/2019/07/thumbnail_IMG_8793.jpg?resize=640%2C427&ssl=1',
+  //   profilePicture: "https://image-prod.iol.co.za/16x9/800/Ponahalo-Mojapelo-without-the-black-face-Picture-Instagram-ponahalo?source=https://xlibris.public.prod.oc.inl.infomaker.io:8443/opencontent/objects/899c6a16-161b-5d8a-b331-de37525c1792&operation=CROP&offset=0x343&resize=1080x608",
+  //   address: {
+  //     streetName: 'Parlaiment',
+  //     HouseNumber: "05",
+  //     location: 'Mfuleni',
+  //     postalCode: 7100,
+  //     city: 'Cape Town',
+  //   },
+  // }
   const text = `Hurry up it's 40% off now.`
 
   const getCartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : localStorage.setItem('cartItems', JSON.stringify(products))
@@ -60,10 +66,20 @@ function App() {
     <AnimatePresence>
       <div className="app">
         <Navbar user={user} products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
+        <Routes>
+          <Route path='signin' element={<Signin />} />
+        </Routes>
         <div className="app-container">
           <div className='blurr' style={{ top: '-25%', left: '0' }}></div>
           <div className='blurr' style={{ top: '50%', right: '0rem' }}></div>
-          <Home user={user} products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} text={text} />
+          {user ? (
+            <Home user={user} products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} text={text} />
+          ) : (
+            <div >
+              <Signup />
+              {/* <Signin /> */}
+            </div>
+          )}
         </div>
       </div>
     </AnimatePresence>

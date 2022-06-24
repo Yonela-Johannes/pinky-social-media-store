@@ -27,6 +27,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-file-base64": "^1.0.3",
+    "react-google-button": "^0.7.2",
     "react-google-login": "^5.2.2",
     "react-hook-form": "^7.27.1",
     "react-icons": "^4.4.0",
@@ -70,10 +71,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.7",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "postcss": "^8.4.14",

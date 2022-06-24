@@ -9,14 +9,18 @@ import { StateProvider } from "./context/StateProvider";
 import { initialState } from "./context/initialState";
 import reducer from './context/reducer'
 import reducers from './reducers'
+
 import './index.css'
+import { AuthContextProvider } from "./context/AuthContext";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

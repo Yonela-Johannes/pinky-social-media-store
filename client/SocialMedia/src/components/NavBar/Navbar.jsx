@@ -4,14 +4,25 @@ import { motion } from 'framer-motion'
 import avatar from '../../imgdata/avatar.png'
 import Logo from '../../imgdata/logopinky.png'
 import { Link } from 'react-router-dom';
-
+import { UserAuth } from '../../context/AuthContext';
 import'./navbar.css'
+import  { useNavigate } from 'react-router-dom'
 import { MdOutlineLogout } from "react-icons/md"
 import { useState } from 'react';
 
-const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) => {
+const Navbar = ({countCartItems, products, onAdd, onRemove, cartItems} ) => {
+    const { user, logOut } = UserAuth()
+
   const [showLogoutList, setShowLogoutList] =useState(false)
   const [showAdd, setShowAdd] = useState(false)
+
+  const handleSignOut = async () => {
+    try {
+      await logOut()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
          <nav className='navbar'>
               <div className='grow'>
@@ -32,7 +43,7 @@ const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) =
                     </ul>
                     {showLogoutList && (
                         <div className='popupList'>
-                          <div className='popupListContent'>
+                          <div className='popupListContent' onClick={handleSignOut}>
                             <p>Logout</p> <MdOutlineLogout className='icon listIcon' />
                           </div>
                         </div>
@@ -41,7 +52,7 @@ const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) =
                   </div>
 
                 ) : (
-                  // <Link to='/signin'>
+                  <Link to='/signin'>
                   <div onClick=''>
                     <ul className='list'>
                       <li className='listItem'>
@@ -51,7 +62,7 @@ const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) =
                       <li className='listItem login'>log in</li>
                     </ul>
                   </div>
-                  // </Link>
+                </Link>
                 )}
               <Navigation countCartItems={countCartItems}  user={user}  products={products} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
               </div>

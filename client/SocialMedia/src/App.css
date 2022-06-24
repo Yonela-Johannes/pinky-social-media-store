@@ -22,7 +22,7 @@
 
 .app{
   width: 100vw;
-  overflow-y: hidden;
+  overflow: hidden;
   scroll-behavior: smooth;
 }
 .app-container {
