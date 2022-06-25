@@ -10,8 +10,8 @@ import  { useNavigate } from 'react-router-dom'
 import { MdOutlineLogout } from "react-icons/md"
 import { useState } from 'react';
 
-const Navbar = ({countCartItems, products, onAdd, onRemove, cartItems} ) => {
-    const { user, logOut } = UserAuth()
+const Navbar = ({user, countCartItems, products, onAdd, onRemove, cartItems} ) => {
+    const { logOut } = UserAuth()
 
   const [showLogoutList, setShowLogoutList] =useState(false)
   const [showAdd, setShowAdd] = useState(false)
@@ -19,6 +19,7 @@ const Navbar = ({countCartItems, products, onAdd, onRemove, cartItems} ) => {
   const handleSignOut = async () => {
     try {
       await logOut()
+      localStorage.removeItem('profile')
     } catch (error) {
       console.log(error)
     }

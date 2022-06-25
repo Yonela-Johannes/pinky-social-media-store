@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./pages/home/Home";
 import products from './data/products'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import "./App.css"
 import { Signin } from './components/auth/Signin'
 import { Signup } from './components/auth/Signup'
 import Navbar from "./components/NavBar/Navbar";
-import { UserAuth } from "./context/AuthContext";
+import { UserAuth } from './context/AuthContext';
 
 function App() {
-  const { user } = UserAuth()
+  const { user, token } = UserAuth()
 
+  console.log(user)
   // const user = {
   //   username: 'Keesh',
   //   name: 'Keasha A Zendaya',
